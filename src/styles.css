@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  padding: 16px 24px;
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.app-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.app-main {
+  display: flex;
+  flex: 1;
+  padding: 24px;
+  gap: 24px;
+}
+
+.video-section {
+  flex: 2;
+}
+
+.video-player {
+  width: 100%;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-element {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.panel-section {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.panel-placeholder {
+  height: 100%;
+  min-height: 400px;
+  background-color: #2a2a2a;
+  border: 2px dashed #4a4a4a;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+}
+
+.panel-placeholder p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.panel-placeholder span {
+  font-size: 14px;
+}
+
+/* Panel manager container (where SDK renders) */
+#panel-manager {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+#panel-manager > * {
+  pointer-events: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .app-main {
+    flex-direction: column;
+  }
+
+  .panel-section {
+    max-width: 100%;
+  }
+
+  #panel-manager {
+    width: 100%;
+  }
+}

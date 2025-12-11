@@ -1,0 +1,36 @@
+{
+  "name": "maestro-bbd-sdk-example",
+  "version": "1.0.0",
+  "description": "Hello World example app demonstrating Maestro Web SDK integration",
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "maestro",
+    "sdk",
+    "sports",
+    "ctv",
+    "example"
+  ],
+  "author": "Maestro",
+  "license": "MIT",
+  "dependencies": {
+    "react": "16.14.0",
+    "react-dom": "16.14.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.14.0",
+    "@types/react-dom": "^16.9.0",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "typescript": "^4.9.5",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
