@@ -46,10 +46,10 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.5.tgz#4fc56c15c580b9adb7dc3c333a134e540b44bfb1"
   integrity sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==
 
-"@maestro_io/maestro-web-sdk@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@maestro_io/maestro-web-sdk/-/maestro-web-sdk-4.0.0.tgz#5632f5fde62a2ff964d99f4b3b61900e618a780e"
-  integrity sha512-gEQw4LBp3qKvzy1oX8tiym8hLIE8Jgam9621c1wUpi7rXI3WH9w86k3xt4qATbrKFdIbqRuuE6SXZITk3YaQzg==
+"@maestro_io/maestro-web-sdk@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@maestro_io/maestro-web-sdk/-/maestro-web-sdk-5.0.0.tgz#3328f1ce9f8b46fd5f5fdfd4d666d1413482fdf3"
+  integrity sha512-aE2iOqEsuh6d9SP9h/XorXK8Ton74n/f803kUwVjIhy0pMLYdaaGYG9WhMeYJqRCsV6KnoDbl17jhyLI7dmQVw==
   dependencies:
     "@rive-app/canvas" "^2.27.3"
     "@sentry/browser" "7.68.0"

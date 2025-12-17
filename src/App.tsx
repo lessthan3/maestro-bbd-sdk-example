@@ -4,20 +4,23 @@ import SDK, { IMaestroEvent } from "@maestro_io/maestro-web-sdk";
 import { AppDelegate } from "./AppDelegate";
 
 const delegate = new AppDelegate();
+
 const App: React.FC = () => {
   const eventViewModel = useRef<IMaestroEvent | null>(null);
   const unmountFunction = useRef<(() => Promise<void>) | null>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const quitButtonRef = useRef<HTMLButtonElement>(null);
+  const panelButtonRef = useRef<HTMLButtonElement>(null);
   const [panelVisible, setPanelVisible] = useState(false);
+  const [videoVisible, setVideoVisible] = useState(false);
 
-  const showPanel = useCallback(async () => {
+  const showPanel = async () => {
     setPanelVisible(true);
-    eventViewModel.current = await SDK.userDidStartWatchingEvent(
-      "401790363",
-      delegate
-    );
     unmountFunction.current = await SDK.renderPanel("panel-section");
-  }, []);
+
+    if (eventViewModel.current) {
+      await eventViewModel.current.didShowPanel();
+    }
+  };
 
   const hidePanel = useCallback(async () => {
     setPanelVisible(false);
@@ -25,21 +28,41 @@ const App: React.FC = () => {
       await unmountFunction.current();
       unmountFunction.current = null;
     }
-    buttonRef.current?.focus();
+    panelButtonRef.current?.focus();
   }, []);
 
   useEffect(() => {
     SDK.configure({
-      siteID: "664b9c57d59a7a431542d814",
+      siteID: "69388ee52b46b639897261f1",
     });
-    buttonRef.current?.focus();
+    quitButtonRef.current?.focus();
   }, []);
 
-  const onClick = async () => {
+  const onPanelClick = async () => {
+    if (!videoVisible) {
+      return;
+    }
+
     if (panelVisible) {
       await hidePanel();
     } else {
       await showPanel();
+    }
+  };
+
+  const onEventToggleClick = async () => {
+    if (videoVisible) {
+      setVideoVisible(false);
+      await SDK.userDidStopWatchingEvent({
+        pageId: "69388ee52b46b63989726228",
+      });
+    } else {
+      setVideoVisible(true);
+      eventViewModel.current = await SDK.userDidStartWatchingEvent({
+        pageId: "69388ee52b46b63989726228",
+        delegate,
+        useProdEnv: false,
+      });
     }
   };
 
@@ -49,29 +72,58 @@ const App: React.FC = () => {
         <div className="video-section">
           <header className="app-header">
             <h1>Maestro SDK Example</h1>
-            <button
-              ref={buttonRef}
-              id="panel-toggle-tbn"
-              className="panel-toggle-btn"
-              onClick={onClick}
-              onKeyDown={async (e) => {
-                if (e.key === "ArrowRight" || e.key === "Right") {
-                  if (panelVisible && eventViewModel.current) {
-                    // Pass focus down to the SDK and blur current button
-                    await eventViewModel.current.startFocusManagement();
+            <div>
+              <button
+                ref={quitButtonRef}
+                style={{
+                  marginRight: "10px",
+                }}
+                id="quit-btn"
+                className="panel-toggle-btn"
+                onClick={onEventToggleClick}
+                onKeyDown={async (e) => {
+                  if (e.key === "ArrowRight" || e.key === "Right") {
                     const button = document.getElementById("panel-toggle-tbn");
                     if (button) {
-                      button.blur();
+                      button.focus();
                     }
                   }
-                }
-              }}
-            >
-              {panelVisible ? "Hide Panel" : "Show Panel"}
-            </button>
+                }}
+              >
+                {videoVisible ? "Stop Watching Event" : "Start Watching Event"}
+              </button>
+              <button
+                ref={panelButtonRef}
+                id="panel-toggle-tbn"
+                className="panel-toggle-btn"
+                onClick={onPanelClick}
+                onKeyDown={async (e) => {
+                  if (e.key === "ArrowRight" || e.key === "Right") {
+                    if (panelVisible && eventViewModel.current) {
+                      // Pass focus down to the SDK and blur current button
+                      await eventViewModel.current.startFocusManagement();
+                      const button =
+                        document.getElementById("panel-toggle-tbn");
+                      if (button) {
+                        button.blur();
+                      }
+                    }
+                  }
+
+                  if (e.key === "ArrowLeft" || e.key === "Left") {
+                    const button = document.getElementById("quit-btn");
+                    if (button) {
+                      button.focus();
+                    }
+                  }
+                }}
+              >
+                {panelVisible ? "Hide Panel" : "Show Panel"}
+              </button>
+            </div>
           </header>
           <div className="video-wrapper">
-            <VideoPlayer />
+            {videoVisible ? <VideoPlayer /> : <p>No event is being watched.</p>}
           </div>
         </div>
 
