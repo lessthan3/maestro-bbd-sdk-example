@@ -5,6 +5,9 @@ import { AppDelegate } from "./AppDelegate";
 
 const delegate = new AppDelegate();
 
+const PAGE_ID = "YOUR_PAGE_ID";
+const SITE_ID = "YOUR_SITE_ID";
+
 const App: React.FC = () => {
   const eventViewModel = useRef<IMaestroEvent | null>(null);
   const unmountFunction = useRef<(() => Promise<void>) | null>(null);
@@ -33,7 +36,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     SDK.configure({
-      siteID: "69388ee52b46b639897261f1",
+      siteID: SITE_ID,
     });
     quitButtonRef.current?.focus();
   }, []);
@@ -54,12 +57,12 @@ const App: React.FC = () => {
     if (videoVisible) {
       setVideoVisible(false);
       await SDK.userDidStopWatchingEvent({
-        pageId: "69388ee52b46b63989726228",
+        pageId: PAGE_ID,
       });
     } else {
       setVideoVisible(true);
       eventViewModel.current = await SDK.userDidStartWatchingEvent({
-        pageId: "69388ee52b46b63989726228",
+        pageId: PAGE_ID,
         delegate,
         useProdEnv: false,
       });
