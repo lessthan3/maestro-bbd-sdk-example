@@ -6,6 +6,7 @@ A minimal example application demonstrating how to integrate the Maestro Web SDK
 
 - Node.js 16+
 - Yarn
+- React >=16
 
 ## Getting Started
 
@@ -22,14 +23,7 @@ cd maestro-bbd-sdk-example
 yarn
 ```
 
-3. Configure your Site ID and Page ID in `src/App.tsx`:
-
-```typescript
-const SITE_ID = "YOUR_SITE_ID";
-const PAGE_ID = "YOUR_PAGE_ID";
-```
-
-4. Start the development server:
+3. Start the development server:
 
 ```bash
 yarn start
@@ -56,7 +50,7 @@ maestro-bbd-sdk-example/
 
 ## SDK Integration
 
-See the `Hello-World` PR for a complete example of Maestro SDK integration.
+See the [`Hello-World`](https://github.com/lessthan3/maestro-bbd-sdk-example/pull/2) PR for a complete example of Maestro SDK integration.
 
 ## Available Scripts
 
