@@ -55,6 +55,7 @@ const App: React.FC = () => {
 
   const onEventToggleClick = async () => {
     if (videoVisible) {
+      await hidePanel();
       setVideoVisible(false);
       await SDK.userDidStopWatchingEvent({
         pageId: PAGE_ID,
