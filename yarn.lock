@@ -46,23 +46,16 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.5.tgz#4fc56c15c580b9adb7dc3c333a134e540b44bfb1"
   integrity sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==
 
-"@maestro_io/maestro-web-sdk@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@maestro_io/maestro-web-sdk/-/maestro-web-sdk-5.0.0.tgz#3328f1ce9f8b46fd5f5fdfd4d666d1413482fdf3"
-  integrity sha512-aE2iOqEsuh6d9SP9h/XorXK8Ton74n/f803kUwVjIhy0pMLYdaaGYG9WhMeYJqRCsV6KnoDbl17jhyLI7dmQVw==
+"@maestro_io/maestro-web-sdk@*":
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/@maestro_io/maestro-web-sdk/-/maestro-web-sdk-5.2.1.tgz#f484c3f7f0007447d18435471887c9586b3c5580"
+  integrity sha512-quPN0ayRX+a+qWTFUxaWxSpbA5mtt2Esae9glJdbu3kjUCRJ5iYZ8ZObiPeVX2Nq/6l/DpzNDzHSvN/LHFU/KA==
   dependencies:
-    "@rive-app/canvas" "^2.27.3"
     "@sentry/browser" "7.68.0"
     axios "^0.27.2"
-    flexibility "^2.0.1"
     prop-types "15.8.1"
     react "16.14.0"
     react-dom "16.14.0"
-
-"@rive-app/canvas@^2.27.3":
-  version "2.32.2"
-  resolved "https://registry.yarnpkg.com/@rive-app/canvas/-/canvas-2.32.2.tgz#f06819fd4275f0458f4ccca4b34f7a6f3a54c319"
-  integrity sha512-P4pWqH8gQkijRGvlGwDAJTElKmjV003uUzdfoq1wUliM2LcZ4aeUzYuURyOy1wNchDlTWwi0OiMNOFAwKKIzKw==
 
 "@sentry-internal/tracing@7.68.0":
   version "7.68.0"
@@ -1214,11 +1207,6 @@ flat@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/flat/-/flat-5.0.2.tgz#8ca6fe332069ffa9d324c327198c598259ceb241"
   integrity sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==
-
-flexibility@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/flexibility/-/flexibility-2.0.1.tgz#ad323aafc40f469ce624286518fc4d7cd72b7c77"
-  integrity sha512-XxfZq0kz6vaLuf2A+S2c+8mPsoy2m3wqqu4fxYgXw1msPl3EIrDk7Trc19/Ed0m7zmHXvAfXVPisR7ZgCVx6Ow==
 
 follow-redirects@^1.0.0, follow-redirects@^1.14.9:
   version "1.15.11"
