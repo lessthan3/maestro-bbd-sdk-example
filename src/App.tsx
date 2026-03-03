@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import VideoPlayer from "./VideoPlayer";
-import SDK, { IMaestroEvent } from "@maestro_io/maestro-web-sdk";
+import SDK, {
+  IMaestroEvent,
+} from "@maestro_io/maestro-web-sdk/dist/maestro-web-sdk.umd.js";
 import { AppDelegate } from "./AppDelegate";
 
 const delegate = new AppDelegate();
 
-const PAGE_ID = "YOUR_PAGE_ID";
-const SITE_ID = "YOUR_SITE_ID";
+const PAGE_ID = "69388ee52b46b63989726228";
+const SITE_ID = "69388ee52b46b639897261f1";
 
 const App: React.FC = () => {
   const eventViewModel = useRef<IMaestroEvent | null>(null);
