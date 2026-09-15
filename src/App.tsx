@@ -7,8 +7,8 @@ import { AppDelegate } from "./AppDelegate";
 
 const delegate = new AppDelegate();
 
-const PAGE_ID = "69388ee52b46b63989726228";
-const SITE_ID = "69388ee52b46b639897261f1";
+const PAGE_ID = "6aa966d669342216ada5a4b8";
+const SITE_ID = "69b2f133e8117ec6536d59a1";
 
 const App: React.FC = () => {
   const eventViewModel = useRef<IMaestroEvent | null>(null);
